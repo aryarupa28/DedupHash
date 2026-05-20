@@ -1,0 +1,11 @@
+// platform_simd.h
+#pragma once
+#include "platform_detect.h"
+
+#if TARGET_ARCH_X86_64
+    #include <immintrin.h>  // AVX, AVX2, AVX-512
+#elif TARGET_ARCH_ARM64
+    #include <arm_neon.h>   // NEON intrinsics
+#else
+    #error "Unsupported architecture for SIMD headers"
+#endif
